@@ -1,8 +1,12 @@
 # Logs
-logs
+log
 *.log
 npm-debug.log*
 
 # Dependency directories
 node_modules/
 package-lock.json
+
+# config
+bot/config.json
+_url
