@@ -4,6 +4,8 @@ const fs = require("fs");
 
 const client = new Client({});
 
+global.client = client;
+
 client.commands = new Collection();
 client.cooldown = new Collection();
 client.categories = [];
