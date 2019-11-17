@@ -2,7 +2,7 @@ const discord = require('discord.js');
 const { perms } = require('../../utils');
 
 module.exports = {
-	name: 'Test',
+	name: 'test',
 	description: 'Test-command',
 	aliases: ['T'],
 	args: false,
