@@ -12,7 +12,7 @@ module.exports.normal = function normal(client, message) {
 module.exports.error = function error(client, message) {
     return new RichEmbed()
     .setColor('ff0800')
-    .setAuthor(index.client.user.username, index.client.user.avatar)
+    .setAuthor(client.user.username, client.user.avatar)
     .setTimestamp()
     .setFooter("Ausgeführt bei: " + message.author.username, message.author.avatarURL);
 }
