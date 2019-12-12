@@ -10,3 +10,5 @@ package-lock.json
 # config
 bot/config.json
 _url
+nodemon.json
+lavalink/

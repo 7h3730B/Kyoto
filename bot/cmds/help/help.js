@@ -1,4 +1,4 @@
-const { normal, error } = require('../../utils.js');
+const { perms, normal, error } = require('../../utils.js');
 const discord = require('discord.js');
 const config = require('../../config');
 
@@ -6,7 +6,11 @@ ex = {
 	name: 'help',
 	description: 'Zeigt alle Commands oder auch nur einen',
 	aliases: ['commands', 'cmds'],
-	usage: '[command name]',
+    usage: '[command name]',
+	args: false,
+    cooldown: 1,
+    guildOnly: true,
+	perms: perms.USER,
     async execute(bot, msg, args) {
 
         let embed;
@@ -32,7 +36,7 @@ ex = {
                 if (command.description) embed.addField('**Beschreibung:**', command.description);
                 if (command.usage) embed.addField('**Verwendung:**', config.prefix + command.name + " " + command.usage);
                 if (command.cooldown) embed.addField('**Cooldown:**', command.cooldown || 3 + 'Sekunde(n)');
-                if (command.guildOnly) embed.addField('**Nur für Server**', "Nur für Server");
+                if (command.guildOnly) embed.addField('**Nur für Server**', "Ja, du hast richtig gehört.");
 
             }
                 

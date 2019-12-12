@@ -17,7 +17,7 @@ class log {
     }
 
     async debug(message) {
-        if(conf.debug) this._logger.log('warn', message);
+        if(conf.debug) this._logger.log('debug', message);
     }
 
     async warn(message) {

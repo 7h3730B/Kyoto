@@ -17,7 +17,15 @@
   },
   "homepage": "https://github.com/7h3730B/Kyoto#readme",
   "dependencies": {
-    "discord.js": "^11.5.1",
-    "winston": "^3.2.1"
+    "bufferutil": "^4.0.1",
+    "discord.js": "github:discordjs/discord.js",
+    "discord.js-lavalink": "^2.2.3",
+    "erlpack": "github:discordapp/erlpack",
+    "mongoose": "^5.7.14",
+    "node-opus": "^0.3.3",
+    "node-superfetch": "^0.1.9",
+    "winston": "^3.2.1",
+    "zlib-sync": "^0.1.6",
+    "zucc": "^0.1.2"
   }
 }
