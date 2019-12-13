@@ -203,6 +203,7 @@ module.exports = {
               });
           } else {
             let song = songs[0];
+            if (!song) return msg.channel.send(error(bot, msg).setDescription('Konnte nichts finden'));
             update(guild_id, args[1], song.info.url, song.info.title, msg.author.tag, song.info, song.track)
             return msg.channel.send(normal(client, msg).setTitle('Now Playing:').setDescription(
               'Titel: [' + song.info.title + ']' + '(' + song.info.uri + ')\n' +
