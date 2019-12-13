@@ -126,9 +126,11 @@ module.exports.addToQueue = async (client, message, track) => {
                                 return collector.stop('STOPPED');
                             }
                             if (!choice || isNaN(choice)) {
+                                collector.stop('STOPPED');
                                 return message.channel.send(error(client, message).setDescription('Keine Valide Eingabe'));
                             }
                             if (choice > songs.length || choice <= 0) {
+                                collector.stop('STOPPED');
                                 return message.channel.send(error(client, message).setDescription('Keine Valide Eingabe!'));
                             }
                             let song = songs[(choice - 1)];
