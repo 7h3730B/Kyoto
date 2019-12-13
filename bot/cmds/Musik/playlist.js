@@ -71,18 +71,18 @@ module.exports = {
               seekable: x.songs[i].info.isSeekable
             }
           });
-                  // track: songs[i].track,
-        //             author: message.author.tag,
-        //             loop: false,
-        //             info: {
-        //                 identifier: songs[i].info.identifier,
-        //                 title: songs[i].info.title,
-        //                 duration: songs[i].info.length,
-        //                 author: songs[i].info.author,
-        //                 url: songs[i].info.uri,
-        //                 stream: songs[i].info.isStream,
-        //                 seekable: songs[i].info.isSeekable
-        //             }
+          // track: songs[i].track,
+          //             author: message.author.tag,
+          //             loop: false,
+          //             info: {
+          //                 identifier: songs[i].info.identifier,
+          //                 title: songs[i].info.title,
+          //                 duration: songs[i].info.length,
+          //                 author: songs[i].info.author,
+          //                 url: songs[i].info.uri,
+          //                 stream: songs[i].info.isStream,
+          //                 seekable: songs[i].info.isSeekable
+          //             }
         }
         msg.channel.send(normal(bot, msg).setDescription('Playlist in queue gefügt'));
         if (play2) play(bot, msg);
@@ -331,24 +331,34 @@ async function list(title, entries, page, increment, client, msg, listMsg, i) {
   // Set up page reactions.
   const lFilter = (reaction, user) => reaction.emoji.name === '◀' && page !== 1 && user.id === msg.author.id;
   const lCollector = listMsg.createReactionCollector(lFilter, {
-    max: 1
+    max: 1,
+    idel: 20000
   });
 
   lCollector.on('collect', async () => {
-    rCollector.stop();
+    rCollector.stop('WEITER');
     await listMsg.reactions.removeAll();
     list(title, entries, page - 1, increment, client, msg, listMsg, i - (2 + (increment * 2)));
   });
 
   const rFilter = (reaction, user) => reaction.emoji.name === '▶' && entries.length > page * increment && user.id === msg.author.id;
   const rCollector = listMsg.createReactionCollector(rFilter, {
-    max: 1
+    max: 1,
+    idle: 20000
   });
 
   rCollector.on('collect', async () => {
-    lCollector.stop();
+    lCollector.stop('WEITER');
     await listMsg.reactions.removeAll();
     list(title, entries, page + 1, increment, client, msg, listMsg, i);
+  });
+
+  rCollector.on('end', async (collected, reason) => {
+    if (reason == 'WEITER') {} else return listMsg.edit(normal(client, msg).setDescription('Ended'));
+  });
+
+  lCollector.on('end', async (collected, reason) => {
+    if (reason == 'WEITER') {} else return listMsg.edit(normal(client, msg).setDescription('Ended'));
   });
 
   if (page !== 1) await listMsg.react('◀');
