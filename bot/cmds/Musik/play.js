@@ -15,7 +15,7 @@ module.exports = {
     usage: '[url|name]',
     cooldown: 1,
     guildOnly: true,
-    perms: perms.USER,
+    perms: perms.DJ,
     async execute(bot, msg, args) {
 
         if (!msg.member.voice.channel) return msg.channel.send(error(bot, msg).setTitle("Fehler").setDescription("Du musst in einem Voice Channel sein um diesen Command nutzen zu können."));

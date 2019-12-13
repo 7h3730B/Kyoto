@@ -15,7 +15,7 @@ module.exports = {
     usage: '[volume (1-200)]',
     cooldown: 1,
     guildOnly: true,
-    perms: perms.USER,
+    perms: perms.DJ,
     async execute(bot, msg, args) {
         const volume = args.join(' ');
         const player = client.player.get(msg.guild.id);

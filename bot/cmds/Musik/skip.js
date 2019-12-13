@@ -15,7 +15,7 @@ module.exports = {
     usage: '',
     cooldown: 1,
     guildOnly: true,
-    perms: perms.USER,
+    perms: perms.DJ,
     async execute(bot, msg, args) {
         let queue = getCurrentQueue(bot.audioQueue, msg.guild.id);
         const player = client.player.get(msg.guild.id);

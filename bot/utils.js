@@ -45,12 +45,8 @@ module.exports.perms = {
         name: 'Guildowner',
         level: 10
     },
-    ADMIN: {
-        name: 'Admin',
-        level: 8
-    },
-    MOD: {
-        name: 'Mod',
+    DJ: {
+        name: 'DJ',
         level: 5
     },
     USER: {

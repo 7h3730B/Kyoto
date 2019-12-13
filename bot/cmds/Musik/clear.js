@@ -9,7 +9,7 @@ module.exports = {
 	usage: '[]',
     cooldown: 1,
     guildOnly: true,
-	perms: perms.USER,
+	perms: perms.DJ,
     async execute(bot, msg, args) {
         let queue = getCurrentQueue(client.audioQueue, msg.guild.id);
         if (!client.player.get(msg.guild.id)) return msg.channel.send(error(bot, msg).setDescription('Es wird zurzeit nichts gespielt'));

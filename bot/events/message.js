@@ -1,5 +1,6 @@
 const { Collection } = require('discord.js');
 const config = require('../config');
+const { perms, error } = require('../utils');
 
 module.exports = async (client, message) => {
 
@@ -50,6 +51,12 @@ module.exports = async (client, message) => {
 	timestamps.set(message.author.id, now);
 	setTimeout(() => timestamps.delete(message.author.id), cooldownAmount);
 
+	let perm = perms.USER;
+	if (message.author.id == config.ownerid) perm = perms.BOTOWNER;
+	else if (message.author.id == message.guild.owner.id) perm = perms.GUILDOWNER;
+	else if (await message.member.roles.find('name', 'DJ')) perm = perms.DJ;
+
+	if (command.perms.level > perm.level) return message.reply('Du brauchst die Permission: ' + command.perms.name + ' Du hast: ' + perm.name)
 	try {
         command.execute(client, message, args);
 	} catch (error) {

@@ -20,8 +20,8 @@ module.exports = {
     async execute(bot, msg, args) {
         let queue = getCurrentQueue(bot.audioQueue, msg.guild.id);
         const player = bot.player.get(msg.guild.id);
-        if (!player) return message.channel.send(error(bot, msg).setDescription('Es wird nichts abgespielt.'));
-        if (queue.length === 0) return message.channel.send(error(bot, msg).setDescription('Es wird nichts abgespielt.'));
+        if (!player) return msg.channel.send(error(bot, msg).setDescription('Es wird nichts abgespielt.'));
+        if (queue.length === 0) return msg.channel.send(error(bot, msg).setDescription('Es wird nichts abgespielt.'));
         let duration = moment.duration({
             ms: queue[0].info.duration
         });
