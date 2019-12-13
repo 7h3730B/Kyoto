@@ -130,7 +130,7 @@ module.exports = {
         if (!args[2]) return msg.channel.send(error(bot, msg).setDescription('Keine Url eingegeben'));
         if (!await get_One(guild_id, msg, args[1])) return msg.channel.send(error(bot, msg).setDescription('Playlist nicht vorhanden.'));
         let pl = await get_One(guild_id, msg, args[1]);
-        if (pl.private && pl.created_by != msg.author.id) return msg.channel.send(error(bot, msg).setDescription('Keine Berechtigung für diese Playlist'));
+        if (!pl.private && pl.created_by != msg.author.id) return msg.channel.send(error(bot, msg).setDescription('Keine Berechtigung für diese Playlist'));
 
         if (args[2].startsWith('https://www.youtube.com/playlist?list=')) {
           const songs = await getSongs(client.player, `${args[2]}`);
