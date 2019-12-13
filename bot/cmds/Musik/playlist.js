@@ -214,6 +214,7 @@ module.exports = {
         break;
 
       default:
+        return;
         break;
     }
   }
