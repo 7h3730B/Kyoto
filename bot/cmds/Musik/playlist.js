@@ -66,7 +66,7 @@ module.exports = {
               title: x.songs[i].info.title,
               duration: x.songs[i].info.length,
               author: x.songs[i].info.author,
-              url: x.songs[i].uri,
+              url: x.songs[i].info.uri,
               stream: x.songs[i].isStream,
               seekable: x.songs[i].info.isSeekable
             }
@@ -181,7 +181,7 @@ module.exports = {
                   m.delete();
                   if (!song) return;
                   update(guild_id, args[1], song.info.url, song.info.title, msg.author.tag, song.info, song.track)
-                  return message.channel.send(normal(client, message).setTitle('Now Playing:').setDescription(
+                  return message.channel.send(normal(client, msg).setTitle('Now Playing:').setDescription(
                     'Titel: [' + song.info.title + ']' + '(' + song.info.uri + ')\n' +
                     'Autor: ' + song.info.author + '\n' +
                     'Länge: ' + new String(song.info.length / 1000).toHHMMSS()
@@ -204,7 +204,7 @@ module.exports = {
           } else {
             let song = songs[0];
             update(guild_id, args[1], song.info.url, song.info.title, msg.author.tag, song.info, song.track)
-            return message.channel.send(normal(client, message).setTitle('Now Playing:').setDescription(
+            return msg.channel.send(normal(client, msg).setTitle('Now Playing:').setDescription(
               'Titel: [' + song.info.title + ']' + '(' + song.info.uri + ')\n' +
               'Autor: ' + song.info.author + '\n' +
               'Länge: ' + new String(song.info.length / 1000).toHHMMSS()
