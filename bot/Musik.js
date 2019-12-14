@@ -47,7 +47,7 @@ module.exports.play = (client, message) => {
         player.play(currentTrack.track);
         player.once('error', (e) => {
             if (e) {
-                message.channel.send(error(client, message).setDescription('```JS\n' + e.message + '```'));
+                // message.channel.send(error(client, message).setDescription('```JS\n' + e.message + '```'));
             }
         });
         player.once('end', (data) => {
