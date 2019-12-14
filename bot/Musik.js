@@ -65,7 +65,7 @@ module.exports.play = (client, message) => {
     } catch (exception) {
         if (exception) {
             console.log(exception);
-            return message.channel.send(error(client, message).setDescription('```JS\n' + exception.message + '```'));
+            return // message.channel.send(error(client, message).setDescription('```JS\n' + exception.message + '```'));
         }
     }
 };
@@ -172,7 +172,7 @@ module.exports.addToQueue = async (client, message, track) => {
                     .catch((err) => {
                         if (err) {
                             console.log(err);
-                            return message.channel.send(error(client, message).setDescription('```JS\n' + err.message + '```'));
+                            return // message.channel.send(error(client, message).setDescription('```JS\n' + err.message + '```'));
                         }
                     });
             } else {
@@ -204,7 +204,7 @@ module.exports.addToQueue = async (client, message, track) => {
     } catch (exception) {
         if (exception) {
             console.log(exception);
-            return message.channel.send(error(client, message).setDescription('```JS\n' + exception.message + '```'));
+            return//  message.channel.send(error(client, message).setDescription('```JS\n' + exception.message + '```'));
         }
     }
 };

@@ -15,6 +15,6 @@ module.exports = {
   guildOnly: true,
   perms: perms.USER,
   async execute(bot, msg, args) {
-    await playlist.execute(bot, msg, args, true);
+    playlist.execute(bot, msg, args, true).catch(e => {});
   }
 }

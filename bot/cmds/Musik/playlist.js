@@ -51,7 +51,7 @@ module.exports = {
         } catch (exception) {
           if (exception) {
             console.log(exception);
-            return msg.channel.send(error(bot, msg).setDescription('```JS\n' + exception.message + '```'));
+            return // msg.channel.send(error(bot, msg).setDescription('```JS\n' + exception.message + '```'));
           }
         }
         let play2 = true;
@@ -198,7 +198,7 @@ module.exports = {
               .catch((err) => {
                 if (err) {
                   console.log(err);
-                  return msg.channel.send(error(client, msg).setDescription('```JS\n' + err.msg + '```'));
+                  return // msg.channel.send(error(client, msg).setDescription('```JS\n' + err.msg + '```'));
                 }
               });
           } else {
